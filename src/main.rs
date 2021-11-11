@@ -1,3 +1,5 @@
+#![windows_subsystem = "windows"]
+
 extern crate savefile;
 #[macro_use]
 extern crate savefile_derive;
@@ -5,8 +7,7 @@ extern crate savefile_derive;
 use std::env;
 use std::path::Path;
 
-use iced::{Align, Button, button, Column, Container, Element, Length, Sandbox, Scrollable, scrollable, Settings, Text, text_input, TextInput, window};
-use iced::keyboard::Event;
+use iced::{Align, Button, button, Column, Container, Element, HorizontalAlignment, Length, Sandbox, Settings, Space, Text, text_input, TextInput, VerticalAlignment};
 use savefile::prelude::*;
 use serenity::async_trait;
 use serenity::Client;
@@ -33,15 +34,12 @@ fn save_state(file: &'static str, state: State) {
 
 
 fn load_state(file: &'static str) -> State {
-    // The GLOBAL_VERSION means we have that version of our data structures,
-    // but we can still load any older version.
     let roaming_path = format!("{}\\OverlayBot\\save\\{}", env::var_os("APPDATA").unwrap().to_str().unwrap(), file);
     load_file(&roaming_path, GLOBAL_VERSION).unwrap()
 }
 
 
 struct Application {
-    scroll: scrollable::State,
     token: text_input::State,
     token_value: String,
     started: button::State,
@@ -75,7 +73,6 @@ impl Sandbox for Application {
         }
 
         Application {
-            scroll: scrollable::State::new(),
             token: text_input::State::new(),
             token_value,
             started: button::State::new(),
@@ -129,7 +126,6 @@ impl Sandbox for Application {
 
     fn view(&mut self) -> Element<Message> {
         let Application {
-            scroll,
             token,
             started,
             overlay,
@@ -140,6 +136,7 @@ impl Sandbox for Application {
         } = self;
 
         let content: Element<_> = Column::new()
+            .spacing(20)
             .push(
                 Button::new(started, Text::new(
                     if *started_value {
@@ -157,20 +154,25 @@ impl Sandbox for Application {
             )
             .push(
                 TextInput::new(overlay, "Put your overlay settings here!", &overlay_value, Message::OverlayChanged)
-            )
+            ).push(
+            Column::new()
+                .push(
+                    Space::new(Length::Fill, Length::Fill)
+                )
+                .push(
+                    Text::new("Created by X1XX#0001").size(10).vertical_alignment(VerticalAlignment::Bottom).horizontal_alignment(HorizontalAlignment::Right)
+                )
+        )
             .into();
 
-        let scrollable = Scrollable::new(scroll)
-            .push(Container::new(content).width(Length::Fill).align_x(Align::Start).align_y(Align::Start));
-
-        Container::new(scrollable)
+        Container::new(content)
             .max_height(300)
             .max_width(300)
             .height(Length::Fill)
             .width(Length::Fill)
             .align_x(Align::Start)
             .align_y(Align::Start)
-            .padding(20)
+            .padding(30)
             .into()
     }
 }
