@@ -1,20 +1,20 @@
 # Overlay Bot
 
 ------------------------------
-##What is overlay bot?
+## What is overlay bot?
 Overlay bot is an executable program you can run on your local windows computer. The program allows
 you to run a discord bot with one command "!overlay", this will give the user a link to a correct
 discord streamkit overlay configured for their voice channel.
 ------------------------------
-##Instructions on usage
+## Instructions on usage
 
 ------------------------------
-###1. Download the executable
+### 1. Download the executable
 Downloading the program is easy. Click [here](https://github.com/jolo613/OverlayBot/releases).
 Find the latest release, which is the one on top, and click on the button which says "Assets" in big bold letters.
 Underneath the assets button you should see a file called "OverlayBot.exe", click on it once to start downloading it.
 -------------------
-###2. Create a discord bot if you don't have one
+### 2. Create a discord bot if you don't have one
 **If you already have your own discord bot invited to your server and/or created, you can skip this section**
 
 
@@ -37,7 +37,7 @@ To create a discord bot, you start by going [here](https://discordapp.com/develo
 
 
 ------------------------------
-###3. Copy your discord bot token into your program
+### 3. Copy your discord bot token into your program
 
 1. Go to your discord bots page.
 2. Go to the bot option on the left and click on it.
@@ -45,14 +45,14 @@ To create a discord bot, you start by going [here](https://discordapp.com/develo
 4. Paste that into the first field on the application.
 
 ------------------------------
-###4. Copy your streamkit options into your program
+### 4. Copy your streamkit options into your program
 
 1. Get a streamkit link.
 2. Copy everything behind the ? question mark, but not the question mark
 3. Paste that into the second field on your application
 
 ------------------------------
-###5. Start your program to test the bot and save your configuration.
+### 5. Start your program to test the bot and save your configuration.
 
 1. Click the Start button once you have completed configuring the application.
 2. Join a voice channel in your discord, and do "!overlay".
