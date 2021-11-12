@@ -5,6 +5,7 @@
 Overlay bot is an executable program you can run on your local windows computer. The program allows
 you to run a discord bot with one command "!overlay", this will give the user a link to a correct
 discord streamkit overlay configured for their voice channel.
+
 ------------------------------
 ## Instructions on usage
 
@@ -13,6 +14,7 @@ discord streamkit overlay configured for their voice channel.
 Downloading the program is easy. Click [here](https://github.com/jolo613/OverlayBot/releases).
 Find the latest release, which is the one on top, and click on the button which says "Assets" in big bold letters.
 Underneath the assets button you should see a file called "OverlayBot.exe", click on it once to start downloading it.
+
 -------------------
 ### 2. Create a discord bot if you don't have one
 **If you already have your own discord bot invited to your server and/or created, you can skip this section**
